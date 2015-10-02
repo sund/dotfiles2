@@ -24,12 +24,12 @@ fi
 }
 
 gitMeta() {
-	gitBranch=$(git branch | awk 'NR==1{print $2}')
+	gitBranch=$(git --git-dir $dotPath/.git --work-tree=$dotPath branch | awk 'match($0, /\*/){print $2}')
 
 	gitHash="$(git --git-dir $dotPath/.git --work-tree=$dotPath log -n 1 | grep -m1 "commit [a-z0-9]" | awk '{ print substr($2,1,7) }')"
 
 	# override VERBASH if we can determine a tag
-	gitTag="$(git --git-dir $dotPath/.git --work-tree=$dotPath describe --tags > /dev/null 2>&1 )"
+	gitTag="$(git --git-dir $dotPath/.git --work-tree=$dotPath describe --tags --always)"
 	if [[ $gitTag ]]
 	then
 		gitWTag=$gitTag
