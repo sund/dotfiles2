@@ -4,4 +4,3 @@
     ~/.bash_profile: bash_profile.sh
 
 - shell:
-  - git update-submodules # after linking ~/.gitconfig
