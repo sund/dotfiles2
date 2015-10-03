@@ -50,6 +50,16 @@ findDotFiles
 gitMeta
 ## unset some of the large functions that won't be needed once processed
 
+###
+## process other files
+#
+
+# aliases for all
+if [ -r "$dotPath/aliases" ]
+  then
+  source $dotPath/aliases
+fi
+
 #
 ##
 ###
