@@ -34,12 +34,9 @@ gitMeta() {
 	then
 		gitWTag=$gitTag
 		export gitWTag
-	else
-		gitWTag="No Tag."
-		export gitWTag
 	fi
 
-	echo -e "This is $gitBranch with gitHash: $gitHash \ngitWTag: $gitWTag"
+	echo -e "This is $gitBranch @# $gitHash :: $gitWTag"
 }
 
 ###
@@ -56,5 +53,12 @@ gitMeta
 #
 ##
 ###
-##
+## unset some things we don't need.
 #
+
+unset findDotFiles
+unset gitMeta
+unset gitWTag
+unset gitTag
+unset gitHash
+unset gitBranch
