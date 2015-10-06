@@ -47,6 +47,12 @@ gitMeta() {
 # find the path for us
 findDotFiles
 
+# process our bash_prompt.sh files
+if [ -r "$dotPath/bash_prompt.sh" ]
+  then
+  source $dotPath/bash_prompt.sh
+fi
+
 # find and print git meta data
 gitMeta
 
