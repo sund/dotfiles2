@@ -3,8 +3,9 @@
 ###
 ## variables
 #
-atHost="" # at host symbol
-inDir="" # in directory symbol
+atHost="at" # at host symbol
+inDir="in" # in directory symbol
+gitChanges="*" # symbol for git changes
 
 ###
 ## functions
@@ -12,7 +13,7 @@ inDir="" # in directory symbol
 
 function parse_git_dirty() {
 
-  [[ "$(git status 2> /dev/null | tail -n1)" != *"working directory clean"* ]] && echo "*"
+  [[ "$(git status 2> /dev/null | tail -n1)" != *"working directory clean"* ]] && echo "$gitChanges"
 
 }
 
@@ -89,5 +90,5 @@ export RESET
 ## finally the prompt
 #
 
-export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$PURPLE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\l \# \$ \[$RESET\]"
+export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]$atHost \[$PURPLE\]\h \[$WHITE\]$inDir \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\l \# \$ \[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
