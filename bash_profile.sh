@@ -32,7 +32,7 @@ gitMeta() {
 
 	gitTag="$(git --git-dir $dotPath/.git --work-tree=$dotPath describe --tags --always)"
 
-  if [[ "$gitTag" -eq "$gitHash" ]]
+  if [[ "${gitTag}" == "${gitHash}" ]]
     then
     echo -e "$branchSym $gitBranch $hashSym $gitHash"
   else
