@@ -3,8 +3,9 @@
 ###
 ## variables
 #
-atHost="at" # at host symbol
-inDir="in" # in directory symbol
+atHost=$(echo -e -n "\x40") # at host symbol
+inDir="in"
+#inDir=$(echo -e -n "\xF0\x9F\x93\x82 ") # in directory symbol
 gitChanges="±" # symbol for git changes
 
 ###
