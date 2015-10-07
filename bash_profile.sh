@@ -25,6 +25,14 @@ fi
 
 }
 
+brewInstalled() {
+  #Is home brew installed?
+  if command -v brew > /dev/null
+   then
+      echo -e -n "\xF0\x9F\x8D\xBA" " "
+  fi
+}
+
 gitMeta() {
 	gitBranch=$(git --git-dir $dotPath/.git --work-tree=$dotPath branch | awk 'match($0, /\*/){print $2}')
 
@@ -52,6 +60,9 @@ if [ -r "$dotPath/bash_prompt.sh" ]
   then
   source $dotPath/bash_prompt.sh
 fi
+
+# check for brew installed
+brewInstalled
 
 # find and print git meta data
 gitMeta
