@@ -5,7 +5,7 @@
 #
 atHost="at" # at host symbol
 inDir="in" # in directory symbol
-gitChanges="*" # symbol for git changes
+gitChanges="±" # symbol for git changes
 
 ###
 ## functions
