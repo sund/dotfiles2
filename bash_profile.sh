@@ -4,9 +4,9 @@ export PATH="$HOME/bin:$PATH"
 ###
 ## variables
 #
-branchSym=$(echo -e -n "\xE2\x91\x86")
-hashSym=$(echo -e "\xE2\x8B\x95")
-tagSym=$(echo -e "\xE1\x9A\xB9")
+branchSym=$(echo -e -n "\xE1\x9B\x98")
+hashSym=$(echo -e "\x23")
+tagSym=$(echo -e "\xE2\x9A\x90")
 
 ###
 ## functions
