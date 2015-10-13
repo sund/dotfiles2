@@ -77,6 +77,12 @@ if [ -r "$dotPath/aliases" ]
   source $dotPath/aliases
 fi
 
+# tab completetion
+if [ -r "$dotPath/tabcompletion" ]
+  then
+  source $dotPath/tabcompletion
+fi
+
 #
 ##
 ###
