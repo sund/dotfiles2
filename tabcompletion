@@ -29,6 +29,7 @@ complete -F _complete_ssh_hosts sshroot
 complete -F _complete_ssh_hosts scp
 complete -F _complete_ssh_hosts sftp
 complete -F _complete_ssh_hosts ping
+complete -F _complete_ssh_hosts host
 }
 else
   {
