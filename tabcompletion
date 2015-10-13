@@ -1,0 +1,40 @@
+# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
+[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh ping host
+
+if [ -f ~/.ssh/known_hosts ]
+then
+{
+  _complete_ssh_hosts ()
+  {
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    comp_ssh_hosts=`if [ -f ~/.ssh/known_hosts ] ; then cat ~/.ssh/known_hosts | \
+      cut -f 1 -d ' ' | \
+      sed -e s/,.*//g | \
+      grep -v ^# | \
+      uniq | \
+      grep -v "\["
+    fi ;
+    if [ -f ~/.ssh/config ]; then
+      cat ~/.ssh/config | \
+      grep "^Host " | \
+      awk '{print $2}'
+    fi `
+    COMPREPLY=( $(compgen -W "${comp_ssh_hosts}" -- $cur))
+    return 0
+  }
+
+complete -F _complete_ssh_hosts ssh
+complete -F _complete_ssh_hosts sshroot
+complete -F _complete_ssh_hosts scp
+complete -F _complete_ssh_hosts sftp
+complete -F _complete_ssh_hosts ping
+complete -F _complete_ssh_hosts host
+}
+else
+  {
+    echo "No 'known_hosts' file was found."
+  }
+fi
+# If possible, add tab completion for many more commands
+[ -f /etc/bash_completion ] && source /etc/bash_completion

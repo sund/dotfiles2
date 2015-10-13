@@ -77,6 +77,21 @@ if [ -r "$dotPath/aliases" ]
   source $dotPath/aliases
 fi
 
+# tab completetion
+if [ -r "$dotPath/tabcompletion" ]
+  then
+  source $dotPath/tabcompletion
+fi
+
+# Load the local shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`.
+# * ~/.extra can be used for other settings you don’t want to commit like private stuff.
+# * `/.local_profile old file that may still be around
+for file in ~/.{path,bash_prompt,bash_local,exports,aliases,functions,extra,local_profile,gistaliases,rvm_profile}; do
+	[ -r "$file" ] && source "$file"
+done
+unset file
+
 #
 ##
 ###
