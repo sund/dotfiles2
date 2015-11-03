@@ -1,3 +1,5 @@
+## functions
+
 ## get the size of directories or the current one
 ## if no arguments given
 function fs() {
@@ -11,4 +13,43 @@ function fs() {
     else
         du $arg .[^.]* *
     fi
+}
+
+# All the dig info
+function digga() {
+  if [[ $# -eq 0 ]]; then
+    echo "Usage: digga hostanme.domain for a single line result"
+  else
+    dig +nocmd "$1" any +multiline +noall +answer
+  fi
+}
+
+# Escape UTF-8 characters into their 3-byte format
+function escape() {
+  if [[ $# -eq 0 ]]; then
+    echo "Usage: Print UTF-8 characters into their 3-byte format"
+  else
+    printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
+    echo # newline
+  fi
+}
+
+# Decode \x{ABCD}-style Unicode escape sequences
+function unidecode() {
+  if [[ $# -eq 0 ]]; then
+    echo "Usage: Decode \x{ABCD}-style Unicode escape sequences"
+  else
+    perl -e "binmode(STDOUT, ':utf8'); print \"$@\""
+    echo # newline
+  fi
+}
+
+# Get a (emoji) character’s Unicode code point
+function codepoint() {
+  if [[ $# -eq 0 ]]; then
+    echo "Usage: Get a (emoji) character’s Unicode code point"
+  else
+    perl -e "use utf8; print sprintf('U+%04X', ord(\"$@\"))"
+    echo # newline
+  fi
 }
