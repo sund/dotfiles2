@@ -6,6 +6,8 @@ _My dotfiles repo._
 
 [Managing Your dotfiles](http://www.anishathalye.com/2014/08/03/managing-your-dotfiles/)
 
+[GitHub ❤ ~/](https://dotfiles.github.io)
+
 ## Notes
 
 Mac OS X _El Capitan_ changed some things in the underlying bash profile. This gave me an opportunity to create a new and fresh dotfiles repo. As such, compatibility with linux will slowly be built in.
