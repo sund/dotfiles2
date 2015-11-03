@@ -1,4 +1,33 @@
 ## functions
+##
+
+# Cleanup the known_hosts when needed.
+cleanssh() {
+  # Remove the line matching $1 from ~/.ssh/known_hosts.
+  if [[ $# -eq 0 ]]
+    then
+        echo "Usage: enter line # or hostname to remove from .ssh/known_hosts"
+        echo "A hostname (or part of) will be removed."
+        echo "Line # should start with ':'"
+    else
+    # backup
+    mv $HOME/.ssh/known_hosts $HOME/.ssh/known_hosts.bak
+
+    remove=`echo "$1" | tr -d ':'`
+    echo Will remove: $remove ...
+    while true
+    do
+    case "$1" in
+    :[0-9]*)    echo "removing line #$remove..."
+            sed ''$remove'd' $HOME/.ssh/known_hosts.bak > $HOME/.ssh/known_hosts
+            break ;;
+    *)      echo "removing host $1..."
+            grep -v $1 $HOME/.ssh/known_hosts.bak >$HOME/.ssh/known_hosts
+            break ;;
+    esac
+    done
+  fi
+}
 
 ## get the size of directories or the current one
 ## if no arguments given
