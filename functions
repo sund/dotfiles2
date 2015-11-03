@@ -1,0 +1,14 @@
+## get the size of directories or the current one
+## if no arguments given
+function fs() {
+    if du -d 1 /dev/null > /dev/null 2>&1; then
+        local arg="-chd 1"
+    else
+        local arg="-ch --max-depth 1"
+    fi
+    if [[ -n "$@" ]]; then
+        du $arg -- "$@"
+    else
+        du $arg .[^.]* *
+    fi
+}
