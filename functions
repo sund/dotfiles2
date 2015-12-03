@@ -82,3 +82,8 @@ function codepoint() {
     echo # newline
   fi
 }
+
+rot13() {
+  # ROT13-encode text. Works for decoding, too! ;)
+  alias rot13='tr a-zA-Z n-za-mN-ZA-M'
+}
