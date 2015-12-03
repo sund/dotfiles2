@@ -87,3 +87,12 @@ rot13() {
   # ROT13-encode text. Works for decoding, too! ;)
   alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 }
+
+shsshconf() {
+  # prints ssh config if exists
+  if [ -r ~/.ssh/config ]; then
+    cat ~/.ssh/config
+  else
+    echo "No ssh config found"
+  fi
+}
