@@ -82,3 +82,62 @@ function codepoint() {
     echo # newline
   fi
 }
+
+rot13() {
+  # ROT13-encode text. Works for decoding, too! ;)
+  alias rot13='tr a-zA-Z n-za-mN-ZA-M'
+}
+
+shshconf() {
+  # prints ssh config if exists
+  if [ -r ~/.ssh/config ]; then
+    cat ~/.ssh/config
+  else
+    echo "No ssh config found"
+  fi
+}
+
+function openfiles() {
+  # Monitor IO in real-time (open files etc).
+  sudo dtrace -n 'syscall::open*:entry { printf("%s %s",execname,copyinstr(arg0)); }'
+}
+
+function a() {
+  # `a` with no arguments opens the current directory in Atom Editor, otherwise
+  # opens the given location
+  if which -s atom; then
+    if [ $# -eq 0 ]; then
+        atom .;
+    else
+        atom "$@";
+    fi
+  fi
+}
+
+# Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
+function targz() {
+    local tmpFile="${@%/}.tar";
+    tar -cvf "${tmpFile}" --exclude=".DS_Store" "${@}" || return 1;
+
+    size=$(
+        stat -f"%z" "${tmpFile}" 2> /dev/null; # OS X `stat`
+        stat -c"%s" "${tmpFile}" 2> /dev/null # GNU `stat`
+    );
+
+    local cmd="";
+    if (( size < 52428800 )) && hash zopfli 2> /dev/null; then
+        # the .tar file is smaller than 50 MB and Zopfli is available; use it
+        cmd="zopfli";
+    else
+        if hash pigz 2> /dev/null; then
+            cmd="pigz";
+        else
+            cmd="gzip";
+        fi;
+    fi;
+
+    echo "Compressing .tar using \`${cmd}\`…";
+    "${cmd}" -v "${tmpFile}" || return 1;
+    [ -f "${tmpFile}" ] && rm "${tmpFile}";
+    echo "${tmpFile}.gz created successfully.";
+}

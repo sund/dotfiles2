@@ -93,3 +93,4 @@ export RESET
 
 export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]$atHost \[$PURPLE\]\h \[$WHITE\]$inDir \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\l \# \$ \[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
+export SUDO_PS1="\[$ORANGE\]\u $( echo -e "\xE1\x90\x85") \h → \w $( echo -e "\xE1\x90\x89")  \[$RESET\]"

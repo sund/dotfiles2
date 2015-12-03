@@ -24,3 +24,8 @@ alias ls="command ls ${colorflag}"
 ## shortcuts
 alias x="exit"
 alias c="clear"
+
+## git aliases
+# pretty-print git logs
+# via https://coderwall.com/p/euwpig
+alias gitlog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit  "
