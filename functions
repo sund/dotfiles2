@@ -88,11 +88,16 @@ rot13() {
   alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 }
 
-shsshconf() {
+shshconf() {
   # prints ssh config if exists
   if [ -r ~/.ssh/config ]; then
     cat ~/.ssh/config
   else
     echo "No ssh config found"
   fi
+}
+
+function openfiles() {
+  # Monitor IO in real-time (open files etc).
+  sudo dtrace -n 'syscall::open*:entry { printf("%s %s",execname,copyinstr(arg0)); }'
 }
