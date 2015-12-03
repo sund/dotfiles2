@@ -48,6 +48,24 @@ gitMeta() {
   fi
 }
 
+release() {
+  ## Determine the OS type
+
+  OSNAME=`uname -s`
+
+  case "$OSNAME" in
+      "Darwin")
+          if [ -f $dotPath/mac ]
+          then
+              source $dotPath/mac
+          fi
+          ;;
+      *)
+          ;;
+  esac
+
+}
+
 ###
 ##
 #
@@ -60,6 +78,9 @@ if [ -r "$dotPath/bash_prompt.sh" ]
   then
   source $dotPath/bash_prompt.sh
 fi
+
+# Check OS type and source specific file
+release
 
 # check for brew installed
 brewInstalled
