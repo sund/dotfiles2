@@ -25,6 +25,9 @@ alias ls="command ls ${colorflag}"
 alias x="exit"
 alias c="clear"
 
+# please sugar sudo me a sandwhich
+alias please='sudo $(fc -nl -1)'
+
 ## git aliases
 # pretty-print git logs
 # via https://coderwall.com/p/euwpig
