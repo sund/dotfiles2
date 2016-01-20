@@ -141,3 +141,9 @@ function targz() {
     [ -f "${tmpFile}" ] && rm "${tmpFile}";
     echo "${tmpFile}.gz created successfully.";
 }
+
+# 4 lulz - make it look like I'm busy
+function compute() {
+  while true; do head -n 100 /dev/urandom; sleep 0.1; done \
+    | hexdump -C | grep "ca fe"
+}
