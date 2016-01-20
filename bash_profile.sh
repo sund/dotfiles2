@@ -115,3 +115,5 @@ unset gitMeta
 unset gitTag
 unset gitHash
 unset gitBranch
+
+export PATH="/Library/Application Support/GoodSync":$PATH
