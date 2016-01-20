@@ -1,0 +1,23 @@
+## Add to .gitconfig
+# source .gitaliases until we include some intelligence determine
+# if we need this setup.
+
+# we assume you have already setup git with your name and email
+# git config --global user.name "John Doe"
+# git config --global user.email johndoe@example.com
+
+# core
+git config --global core.excludesfile $dotPath/.gitignore
+
+# color
+git config --global color.ui auto
+git config --global color.interactive auto
+
+# alias
+git config --global alias.co checkout
+git config --global alias.ci commit
+git config --global alias.s status
+git config --global alias.oneline "log --oneline"
+git config --global alias.amend "commit --amend"
+
+## Add to shell aliases

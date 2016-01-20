@@ -8,4 +8,14 @@ alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/La
 # flush dns
 alias flushdns='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
 
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
+alias stfu="osascript -e 'set volume output muted true'"
+alias pumpitup="osascript -e 'set volume output volume 100'"
+alias halfvol="osascript -e 'set volume output volume 50'"
+
 ## functions
