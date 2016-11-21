@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# you may only need to run this script once.
 
 set -e
 
