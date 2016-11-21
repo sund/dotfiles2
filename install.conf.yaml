@@ -1,7 +1,9 @@
 - clean: ['~/']
 
 - link:
-    ~/.bash_profile: bash_profile.sh
+    ~/.bash_profile: 
+        relink: true
+        path: bash_profile.sh
     ~/.vimrc: vimrc
 
 - shell:
