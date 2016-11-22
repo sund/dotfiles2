@@ -104,6 +104,9 @@ for file in ~/.{path,bash_prompt,bash_local,extra,local_profile,gistaliases,rvm_
 done
 unset file
 
+# make sure .bash_profile is a symlink
+test -f ~/.bash_profile && echo "dotbot needs to be reinstalled; run `source $dotPath/install`"
+
 #
 ##
 ###
