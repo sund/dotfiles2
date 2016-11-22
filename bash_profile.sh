@@ -61,6 +61,12 @@ release() {
           fi
           ;;
       *)
+          if [[ -n $(grep 'Revision' /proc/cpuinfo | awk '{print $3}' | sed 's/^1000//') ]]
+          then
+            rpiVer=`grep 'Revision' /proc/cpuinfo | awk '{print $3}' | sed 's/^1000//'`
+            source $dotPath/raspi
+            echo "This is a RasPi "$piModel
+          fi
           ;;
   esac
 
