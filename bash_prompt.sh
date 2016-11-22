@@ -14,7 +14,7 @@ gitChanges="±" # symbol for git changes
 
 function parse_git_dirty() {
 
-  [[ "$(git status 2> /dev/null | tail -n1)" != *"nothing to commit, working tree clean"* ]] && echo "$gitChanges"
+  [[ $(git status 2> /dev/null | tail -n1) != *nothing\ to\ commit* ]] && echo "$gitChanges"
 
 }
 
