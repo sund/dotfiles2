@@ -33,9 +33,9 @@ override_git_prompt_colors() {
   GIT_PROMPT_COMMAND_FAIL="${Red}✘ "
 
   GIT_PROMPT_START_USER="${BoldBlue}📦 ${ResetColor}"
-  GIT_PROMPT_START_ROOT="${BoldRed}❖ ${ResetColor}"
-  GIT_PROMPT_END_USER="\n_LAST_COMMAND_INDICATOR_${White}${Time12a}${ResetColor} ${BoldGreen}\\u${White}@${BoldYellow}\\h ${Cyan}${PathShort}${ResetColor}${BoldWhite} $ ${ResetColor}"
-  GIT_PROMPT_END_ROOT="\n_LAST_COMMAND_INDICATOR_${White}${Time12a}${ResetColor} ${BoldRed}\\u${White}@${BoldYellow}\\h ${Cyan}${PathShort}${ResetColor}${BoldRed} # ${ResetColor}"
+  GIT_PROMPT_START_ROOT="${BoldRed}📦 ${ResetColor}"
+  GIT_PROMPT_END_USER="\n_LAST_COMMAND_INDICATOR_${White}${ResetColor}${Red}\\u${White} @ ${Magenta}\\h ${Cyan}${PathShort}${ResetColor}${White}\n\l \# \$ ${ResetColor}"
+  GIT_PROMPT_END_ROOT="\n_LAST_COMMAND_INDICATOR_${White}${ResetColor}${BoldRed}\\u${White} @ ${BoldMagenta}\\h ${Cyan}${PathShort}${ResetColor}${BoldRed}\n\l \# \$ ${ResetColor}"
 }
 
 reload_git_prompt_colors "Sund"
