@@ -1,0 +1,31 @@
+# Always sort the files
+#--sort-files
+
+# Always color, even if piping to a another program
+#--color
+
+# Use "less -r" as my pager
+#--pager=less -r
+
+ # adds new file types
+
+--type-set=apache=.conf
+--type-set=conf=.conf,.cnf
+--type-set=diff=.patch
+--type-set=dos=.bat,.cmd
+--type-set=include=.inc
+--type-set=json=.json
+--type-set=markdown=.mdml,.markdown,.mark,.mdown,.markdn,.md
+--type-set=patch=.patch
+--type-set=powershell=.ps1
+--type-set=rpm=.spec
+--type-set=setext=.etx,.setext,.stx
+--type-set=spec=.spec
+--type-set=taskpaper=.taskpaper,.task,.tasks,.todo,.todos,.todolist
+--type-set=todo=.taskpaper,.task,.tasks,.todo,.todos,.todolist
+
+# Redefines sql from just .sql and .ctl
+--type-set=sql=.mysql,.pgsql,.sql.ctl,.dmp,.dump
+
+# # By default stay out of netapp style snapshot directories
+--ignore-dir=.snapshot
