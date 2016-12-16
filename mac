@@ -18,4 +18,7 @@ alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume output volume 100'"
 alias halfvol="osascript -e 'set volume output volume 50'"
 
+# Lock current session and proceed to the login screen.
+alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
+
 ## functions
