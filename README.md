@@ -14,6 +14,8 @@ Mac OS X _El Capitan_ changed some things in the underlying bash profile. This g
 
 This version uses [dotbot](https://github.com/anishathalye/dotbot) as a submodule whose purpose is to make links to the bash files and run simple shell commands when updating dotfiles2.
 
+Additionally, this uses [bash-git-prompt](https://github.com/magicmonty/bash-git-prompt) but not as a submodule; the submodule had a minor UTF-8 error. I just copied files into ```bash-git-prompt``` for now.
+
 ## Installation
 
 1. Clone the repo into your home directory.
