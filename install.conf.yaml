@@ -1,10 +1,17 @@
+- defaults:
+    link:
+      relink: true
+
 - clean: ['~/']
 
 - link:
-    ~/.bash_profile: 
+    ~/.bash_profile:
         relink: true
+        force: true
+        backup: true
         path: bash_profile.sh
     ~/.vimrc: vimrc
+    ~/.ackrc: ackrc
 
 - shell:
   - [git submodule update --init --recursive, Updating submodules]

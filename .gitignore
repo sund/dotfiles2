@@ -1,6 +1,10 @@
 ## Simple .gitignore for mac
 
+._*
 .DS_Store
+.DS_Store?
 .AppleDouble
 .Spotlight-V100
 .Trashes
+ehthumbs.db
+Thumbs.db

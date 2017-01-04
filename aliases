@@ -32,3 +32,6 @@ alias please='sudo $(fc -nl -1)'
 # pretty-print git logs
 # via https://coderwall.com/p/euwpig
 alias gitlog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit  "
+
+# URL-encode strings
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
