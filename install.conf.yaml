@@ -12,6 +12,9 @@
         path: bash_profile.sh
     ~/.vimrc: vimrc
     ~/.ackrc: ackrc
+    ~/.inputrc:
+      backup: true
+      path: inputrc
 
 - shell:
   - [git submodule update --init --recursive, Updating submodules]
