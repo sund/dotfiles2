@@ -28,6 +28,10 @@ alias c="clear"
 # please sugar sudo me a sandwhich
 alias please='sudo $(fc -nl -1)'
 
+#set -o nounset     # These  two options are useful for debugging.
+##set -o xtrace
+alias debug="set -o nounset; set -o xtrace"
+
 ## git aliases
 # pretty-print git logs
 # via https://coderwall.com/p/euwpig
