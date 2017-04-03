@@ -10,6 +10,11 @@
         force: true
         backup: true
         path: bash_profile.sh
+    ~/.bashrc:
+        relink: true
+        force: true
+        backup: true
+        path: bashrc
     ~/.vimrc: vimrc
     ~/.ackrc: ackrc
     ~/.inputrc:
