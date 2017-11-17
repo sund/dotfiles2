@@ -11,7 +11,6 @@ tagSym=$(echo -e "\xE2\x9A\x90")
 ###
 ## functions
 #
-
 findDotFiles() {
 # http://content.hccfl.edu/pollock/Unix/FindCmd.htm
 # find ~ -maxdepth 5 -name "*dotfiles" | sort -f -u -d -r | head -1
@@ -80,9 +79,15 @@ release() {
 findDotFiles
 
 # process our bash_prompt.sh files
-if [ -r "$dotPath/bash_prompt.sh" ]
-  then
-  source $dotPath/bash_prompt.sh
+
+if [[ "$_byobu_sourced" = 1 ]]
+then
+  . $dotPath/prompt
+else
+  if [ -r "$dotPath/bash_prompt.sh" ]
+    then
+    source $dotPath/bash_prompt.sh
+  fi
 fi
 
 # Check OS type and source specific file
