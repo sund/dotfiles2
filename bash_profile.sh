@@ -24,6 +24,20 @@ fi
 
 }
 
+ansibleInstalled() {
+  #Is home brew installed?
+  if command -v ansible > /dev/null
+   then # 0xC3 0xA5 -- small a ring
+   # atom "\xE2\x9A\x9B"
+   # a under "\xC2\xAA"
+   # dot a \xC8\xA7
+   # dat A \xC8\xA6
+   # dot logical \xE2\xA9\x91
+   # dot triangle \xE2\xA7\x8A
+      echo -e -n "\xE2\xA9\x91"
+  fi
+}
+
 brewInstalled() {
   #Is home brew installed?
   if command -v brew > /dev/null
@@ -92,6 +106,9 @@ fi
 
 # Check OS type and source specific file
 release
+
+# check for Ansible installed
+ansibleInstalled
 
 # check for brew installed
 brewInstalled
